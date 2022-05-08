@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -117,11 +118,11 @@ class MainActivity : AppCompatActivity() {
             var gluten = false
             var number = 0
             var meat = false
-            var str = text.textBlocks.get(i).text
-            var spannable = SpannableStringBuilder(str + " ")
+            val str = text.textBlocks.get(i).text
+            val spannable = SpannableStringBuilder(str + " ")
             if (i % 2 != 0) {
-                var slicedString = str.slice(13 until str.length)
-                var arr = slicedString.split(", ")
+                val slicedString = str.slice(13 until str.length)
+                val arr = slicedString.split(", ")
 
                 for (value in arr) {
                     if (value.lowercase() in glutenArray) {
@@ -156,10 +157,24 @@ class MainActivity : AppCompatActivity() {
                 }
                 tvContent.append(spannable)
                 if (!gluten) {
-                    tvContent.append(" GF")
+                    val spann = SpannableStringBuilder(" GF ")
+                    spann.setSpan(
+                        ForegroundColorSpan(Color.YELLOW),
+                        1, // start
+                        3, // end
+                        Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                    )
+                    tvContent.append(spann)
                 }
                 if (!meat) {
-                    tvContent.append(" V")
+                    val spann = SpannableStringBuilder(" V ")
+                    spann.setSpan(
+                        ForegroundColorSpan(Color.GREEN),
+                        1, // start
+                        2, // end
+                        Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                    )
+                    tvContent.append(spann)
                 }
             }
             else{
