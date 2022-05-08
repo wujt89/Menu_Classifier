@@ -4,13 +4,18 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.BackgroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
@@ -21,10 +26,11 @@ class MainActivity : AppCompatActivity() {
     private val TAG  = "ML_Kit_text_recognition"
     private val img_id = R.drawable.img
     private val twitt = R.drawable.twitt
+    private val menu2 = R.drawable.menu2
 
     var bitmapArray = ArrayList<Bitmap>()
-    var glutenArray = listOf<String>("gryczana", "pęczak", "panierowany", "panierowane", "panierka")
-    val meatArray = listOf<String>("wołowina", "wieprzowina", "kurczak")
+    var glutenArray = listOf<String>("bread")
+    val meatArray = listOf<String>("steak", "chicken")
 
 
 
@@ -59,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         imageView.setImageResource(img_id)
         selectedImage = BitmapFactory.decodeResource(resources, img_id)
 
-        val content:Array<String> = arrayOf("img", "twitt")
+        val content:Array<String> = arrayOf("img", "twitt", "menu2")
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, content)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
@@ -75,10 +81,16 @@ class MainActivity : AppCompatActivity() {
                     selectedImage = BitmapFactory.decodeResource(resources,img_id)
                 }
 
-                else
+                else if(position == 1)
                 {
                     imageView.setImageResource(twitt)
                     selectedImage = BitmapFactory.decodeResource(resources,twitt)
+                }
+
+                else
+                {
+                    imageView.setImageResource(menu2)
+                    selectedImage = BitmapFactory.decodeResource(resources,menu2)
                 }
             }
         }
@@ -91,19 +103,71 @@ class MainActivity : AppCompatActivity() {
         recognizer.process(inputImage)
             .addOnSuccessListener {
                 pb.visibility = View.GONE
-                tvContent.text = it.text
-                println(it.textBlocks.size)
-                for (i in 0 until it.textBlocks.size)
-                {
-                    println(it.textBlocks.get(i).text)
-                }
 
-                println("lalalallalalalalalaa")
+                handlingString(it)
 
             }
             .addOnFailureListener{
                 Log.d(TAG, "Succesful Recognition", it)
             }
+    }
+
+    private fun handlingString(text : Text) {
+        for (i in 0 until text.textBlocks.size) {
+            var gluten = false
+            var number = 0
+            var meat = false
+            var str = text.textBlocks.get(i).text
+            var spannable = SpannableStringBuilder(str + " ")
+            if (i % 2 != 0) {
+                var slicedString = str.slice(13 until str.length)
+                var arr = slicedString.split(", ")
+
+                for (value in arr) {
+                    if (value.lowercase() in glutenArray) {
+                        gluten = true
+                        val foundWord = value.toRegex().find(str)
+                        if (foundWord != null) {
+                            spannable.setSpan(
+                                BackgroundColorSpan(Color.YELLOW),
+                                foundWord.range.first, // start
+                                foundWord.range.last+1, // end
+                                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                            )
+                        }
+                    }
+                    for (meatType in meatArray)
+                    {
+                        if (meatType in value.lowercase()) {
+                            meat = true
+                            val foundWord = value.toRegex().find(str)
+                            if (foundWord != null) {
+                                println(foundWord.value)
+                                spannable.setSpan(
+                                    BackgroundColorSpan(Color.RED),
+                                    foundWord.range.first, // start
+                                    foundWord.range.last + 1, // end
+                                    Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+                                )
+                            }
+                        }
+                    }
+                    number += 1
+                }
+                tvContent.append(spannable)
+                if (!gluten) {
+                    tvContent.append(" GF")
+                }
+                if (!meat) {
+                    tvContent.append(" V")
+                }
+            }
+            else{
+                tvContent.append(spannable)
+            }
+
+            tvContent.append("\n")
+        }
     }
 
     private fun dispatchTakePictureIntent() {
