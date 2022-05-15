@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    tools:context=".firstScreen"
-    android:gravity="center">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        tools:context=".firstScreen">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_weight="0"
-        android:fontFamily="@font/pixelcalculation"
-        android:padding="50dp"
-        android:text="CAN YOU EAT IT?"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="96sp"
-        tools:text="CAN YOU EAT IT?" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_weight="0"
+            android:fontFamily="@font/pixelcalculation"
+            android:padding="50dp"
+            android:text="CAN YOU EAT IT?"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="96sp"
+            tools:text="CAN YOU EAT IT?" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="500sp"
-        android:layout_height="120sp"
-        android:layout_marginTop="200sp"
-        android:layout_weight="0"
-        android:background="@drawable/buttonmenu"
-        android:fontFamily="@font/pixelcalculation"
-        android:padding="15dp"
-        android:text="Check it"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="34sp" />
+        <Button
+            android:id="@+id/check_btn"
+            android:layout_width="500sp"
+            android:layout_height="120sp"
+            android:layout_marginTop="200sp"
+            android:layout_weight="0"
+            android:background="@drawable/buttonmenu"
+            android:fontFamily="@font/pixelcalculation"
+            android:padding="15dp"
+            android:text="Check it"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="500sp"
-        android:layout_height="120sp"
-        android:layout_marginTop="20sp"
-        android:layout_weight="0"
-        android:background="@drawable/buttonmenu"
-        android:fontFamily="@font/pixelcalculation"
-        android:padding="15dp"
-        android:text="My Restaurants"
-        android:textAlignment="center"
-        android:textSize="34sp" />
-</LinearLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="500sp"
+            android:layout_height="120sp"
+            android:layout_marginTop="20sp"
+            android:layout_weight="0"
+            android:background="@drawable/buttonmenu"
+            android:fontFamily="@font/pixelcalculation"
+            android:padding="15dp"
+            android:text="My Restaurants"
+            android:textAlignment="center"
+            android:textSize="34sp" />
+    </LinearLayout>
+</layout>
+
 
