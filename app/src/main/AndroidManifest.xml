@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ML_Kit_Text_Recognition">
         <activity
+            android:name=".ImportScreen"
+            android:exported="false" />
+        <activity
             android:name=".ChooseMenu"
             android:exported="false" />
         <activity

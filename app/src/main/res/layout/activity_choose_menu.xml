@@ -53,6 +53,12 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="34sp" />
+                    <ImageView
+                        android:id="@+id/importImagesImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginBottom="40sp"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <TextView
                         android:id="@+id/importImagesText"
@@ -65,12 +71,7 @@
                         android:textColor="@color/white"
                         android:textSize="24sp" />
 
-                    <ImageView
-                        android:id="@+id/importImagesImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="86dp"
-                        android:layout_marginBottom="40sp"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
 
                     <Button
                         android:id="@+id/importImagesButton"
@@ -103,6 +104,13 @@
                         android:textColor="@color/white"
                         android:textSize="34sp" />
 
+                    <ImageView
+                        android:id="@+id/takeImagesImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="86dp"
+                        android:layout_marginBottom="40sp"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
                     <TextView
                         android:id="@+id/takeImagesText"
                         android:layout_width="match_parent"
@@ -115,12 +123,6 @@
                         android:textColor="@color/white"
                         android:textSize="24sp" />
 
-                    <ImageView
-                        android:id="@+id/takeImagesImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="83dp"
-                        android:layout_marginBottom="40sp"
-                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <Button
                         android:id="@+id/takeImagesButton"

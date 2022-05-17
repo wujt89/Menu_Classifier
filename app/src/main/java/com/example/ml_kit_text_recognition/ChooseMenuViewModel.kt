@@ -5,4 +5,7 @@ import com.example.ml_kit_text_recognition.databinding.ActivityChooseMenuBinding
 
 class ChooseMenuViewModel: ViewModel() {
     lateinit var binding: ActivityChooseMenuBinding
+
+    val camera = R.drawable.camera
+    val directory = R.drawable.directory
 }
