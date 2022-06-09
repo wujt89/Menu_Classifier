@@ -1,5 +1,6 @@
 package com.example.ml_kit_text_recognition
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -13,5 +14,10 @@ class ChooseMenu : AppCompatActivity() {
 
         viewModel.binding.takeImagesImage.setImageResource(viewModel.camera)
         viewModel.binding.importImagesImage.setImageResource(viewModel.directory)
+
+        viewModel.binding.importImagesButton.setOnClickListener{
+            val i = Intent(this@ChooseMenu, ImportScreen::class.java)
+            startActivity(i)
+        }
     }
 }

@@ -7,4 +7,7 @@
     <string name="chooseTitle">Which way do you want to add photos?</string>
     <string name="optionA">Option A</string>
     <string name="option_b">Option B</string>
+    <string name="add_restaurant">Add Restaurant</string>
+    <string name="shuffle">Switch</string>
+    <string name="import_btn">Import</string>
 </resources>
