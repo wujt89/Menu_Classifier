@@ -11,8 +11,8 @@
 
         <TextView
             android:id="@+id/chooseTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="353dp"
+            android:layout_width="match_parent"
+            android:layout_height="233dp"
             android:layout_marginTop="60sp"
             android:fontFamily="@font/pixelcalculation"
             android:padding="20sp"
@@ -44,7 +44,7 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/importImagesTitle"
+                        android:id="@+id/menuTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="40sp"
@@ -54,33 +54,33 @@
                         android:textColor="@color/white"
                         android:textSize="34sp" />
                     <ImageView
-                        android:id="@+id/importImagesImage"
+                        android:id="@+id/menuImage"
                         android:layout_width="match_parent"
                         android:layout_height="86dp"
                         android:layout_marginBottom="40sp"
                         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <TextView
-                        android:id="@+id/importImagesText"
+                        android:id="@+id/menuText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="40sp"
                         android:fontFamily="@font/pixelcalculation"
                         android:padding="20sp"
-                        android:text="@string/importImageInfo"
+                        android:text="@string/menuInfo"
                         android:textColor="@color/white"
                         android:textSize="24sp" />
 
 
 
                     <Button
-                        android:id="@+id/importImagesButton"
+                        android:id="@+id/menuButton"
                         android:layout_width="200sp"
                         android:layout_height="80sp"
                         android:layout_marginBottom="40sp"
                         android:background="@drawable/buttonmenu"
                         android:fontFamily="@font/pixelcalculation"
-                        android:text="@string/importImageButton"
+                        android:text="@string/menuButton"
                         android:textAlignment="center" />
 
 
@@ -94,7 +94,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/takeImagesTitle"
+                        android:id="@+id/productTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="40sp"
@@ -105,33 +105,33 @@
                         android:textSize="34sp" />
 
                     <ImageView
-                        android:id="@+id/takeImagesImage"
+                        android:id="@+id/productImage"
                         android:layout_width="match_parent"
                         android:layout_height="86dp"
                         android:layout_marginBottom="40sp"
                         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <TextView
-                        android:id="@+id/takeImagesText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/productText"
+                        android:layout_width="400dp"
+                        android:layout_height="198dp"
                         android:layout_marginBottom="40sp"
                         android:fontFamily="@font/pixelcalculation"
                         android:padding="20sp"
-                        android:text="@string/takeImageInfo"
+                        android:text="@string/productInfo"
                         android:textAlignment="textStart"
                         android:textColor="@color/white"
                         android:textSize="24sp" />
 
 
                     <Button
-                        android:id="@+id/takeImagesButton"
+                        android:id="@+id/productButton"
                         android:layout_width="200sp"
                         android:layout_height="80sp"
                         android:layout_marginBottom="40sp"
                         android:background="@drawable/buttonmenu"
                         android:fontFamily="@font/pixelcalculation"
-                        android:text="@string/takeImageButton" />
+                        android:text="@string/productButton" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

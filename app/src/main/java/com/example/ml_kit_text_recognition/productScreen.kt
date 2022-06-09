@@ -20,8 +20,6 @@ class productScreen : AppCompatActivity() {
         var viewModel = ViewModelProvider(this).get(productScreenModelView::class.java)
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_product_screen)
 
-        viewModel.binding.image.setImageResource(viewModel.img_id)
-        viewModel.selectedImage = BitmapFactory.decodeResource(resources, viewModel.img_id)
         viewModel.binding.buttonImport.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, viewModel.pickImage)

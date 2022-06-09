@@ -12,12 +12,17 @@ class ChooseMenu : AppCompatActivity() {
         var viewModel = ViewModelProvider(this).get(ChooseMenuViewModel::class.java)
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_choose_menu)
 
-        viewModel.binding.takeImagesImage.setImageResource(viewModel.camera)
-        viewModel.binding.importImagesImage.setImageResource(viewModel.directory)
+        viewModel.binding.productImage.setImageResource(viewModel.camera)
+        viewModel.binding.menuImage.setImageResource(viewModel.directory)
 
-        viewModel.binding.importImagesButton.setOnClickListener{
-            val i = Intent(this@ChooseMenu, productScreen::class.java)
-            startActivity(i)
+        viewModel.binding.menuButton.setOnClickListener{
+            val m = Intent(this@ChooseMenu, menuScreen::class.java)
+            startActivity(m)
+        }
+
+        viewModel.binding.productButton.setOnClickListener{
+            val p = Intent(this@ChooseMenu, productScreen::class.java)
+            startActivity(p)
         }
     }
 }

@@ -1,27 +1,20 @@
 package com.example.ml_kit_text_recognition
 
-import android.content.ContentValues
-import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.net.Uri
-import android.provider.MediaStore
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.ml_kit_text_recognition.databinding.ActivityMenuScreenBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import java.io.FileDescriptor
-import java.io.IOException
 
 class menuScreenModelView : ViewModel() {
     lateinit var binding: ActivityMenuScreenBinding
@@ -31,13 +24,7 @@ class menuScreenModelView : ViewModel() {
     var imageUri: Uri? = null
     var imageBitmap: Bitmap? = null
     private val TAG  = "ML_Kit_text_recognition"
-    val img_id = R.drawable.img
-    val twitt = R.drawable.twitt
-    val menu2 = R.drawable.menu2
-
     var flag = 0
-
-    var bitmapArray = ArrayList<Bitmap>()
     private var glutenArray = listOf<String>("bread")
     private val meatArray = listOf<String>("steak", "chicken")
 
@@ -46,10 +33,11 @@ class menuScreenModelView : ViewModel() {
 
     fun startTextRecognition(image: Bitmap)
     {
-        val inputImage = InputImage.fromBitmap(image!!,90)
+        val inputImage = InputImage.fromBitmap(image,90)
         val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
         recognizer.process(inputImage)
             .addOnSuccessListener {
+                binding.recognizedText.text = ""
                 handlingString(it)
             }
             .addOnFailureListener{
@@ -67,13 +55,13 @@ class menuScreenModelView : ViewModel() {
         )
     }
 
-    fun handlingString(text : Text) {
+    private fun handlingString(text : Text) {
         for (i in 0 until text.textBlocks.size) {
             var gluten = false
             var number = 0
             var meat = false
-            val str = text.textBlocks.get(i).text
-            val spannable = SpannableStringBuilder(str + " ")
+            val str = text.textBlocks[i].text
+            val spannable = SpannableStringBuilder("$str ")
             if (i % 2 != 0) {
                 val slicedString = str.slice(13 until str.length)
                 val arr = slicedString.split(", ")

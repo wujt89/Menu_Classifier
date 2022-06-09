@@ -20,8 +20,6 @@ class menuScreen : AppCompatActivity() {
         var viewModel = ViewModelProvider(this).get(menuScreenModelView::class.java)
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_menu_screen)
 
-        viewModel.binding.image.setImageResource(viewModel.img_id)
-        viewModel.selectedImage = BitmapFactory.decodeResource(resources, viewModel.img_id)
         viewModel.binding.buttonImport.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, viewModel.pickImage)
