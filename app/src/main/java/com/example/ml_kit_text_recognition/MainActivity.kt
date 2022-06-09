@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
+
         viewModel.binding.btnStart.setOnClickListener {
             viewModel.startTextRecognition()
             viewModel.binding.progressBar.visibility = View.VISIBLE

@@ -16,7 +16,7 @@ class ChooseMenu : AppCompatActivity() {
         viewModel.binding.importImagesImage.setImageResource(viewModel.directory)
 
         viewModel.binding.importImagesButton.setOnClickListener{
-            val i = Intent(this@ChooseMenu, ImportScreen::class.java)
+            val i = Intent(this@ChooseMenu, productScreen::class.java)
             startActivity(i)
         }
     }

@@ -9,8 +9,9 @@
         <entry key="app/src/main/res/font/fonts.xml" value="0.15625" />
         <entry key="app/src/main/res/layout/activity_choose_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_first_screen.xml" value="0.10214843750000001" />
-        <entry key="app/src/main/res/layout/activity_import_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_import_screen.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_product_screen.xml" value="0.12083333333333333" />
         <entry key="app/src/main/res/xml/file_paths.xml" value="0.1" />
       </map>
     </option>

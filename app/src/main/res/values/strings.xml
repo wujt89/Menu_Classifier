@@ -10,4 +10,8 @@
     <string name="add_restaurant">Add Restaurant</string>
     <string name="shuffle">Switch</string>
     <string name="import_btn">Import</string>
+    <string name="take_btn">Take</string>
+    <string name="menuTitle">MENU</string>
+    <string name="add_product">Add Product</string>
+    <string name="productTitle">PRODUCT</string>
 </resources>
