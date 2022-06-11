@@ -101,7 +101,7 @@ class menuScreenModelView : ViewModel() {
                 if (!gluten) {
                     val spann = SpannableStringBuilder(" GF ")
                     spann.setSpan(
-                        ForegroundColorSpan(Color.YELLOW),
+                        ForegroundColorSpan(Color.rgb(245, 190,0)),
                         1, // start
                         3, // end
                         Spannable.SPAN_EXCLUSIVE_INCLUSIVE
@@ -111,7 +111,7 @@ class menuScreenModelView : ViewModel() {
                 if (!meat) {
                     val spann = SpannableStringBuilder(" V ")
                     spann.setSpan(
-                        ForegroundColorSpan(Color.GREEN),
+                        ForegroundColorSpan(Color.rgb(0, 135,62)),
                         1, // start
                         2, // end
                         Spannable.SPAN_EXCLUSIVE_INCLUSIVE

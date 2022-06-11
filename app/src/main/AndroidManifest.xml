@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ML_Kit_Text_Recognition">
         <activity
+            android:name=".myProducts"
+            android:exported="false" />
+        <activity
             android:name=".productScreenModelView"
             android:exported="false" />
         <activity

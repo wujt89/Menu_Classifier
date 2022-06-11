@@ -56,73 +56,101 @@ class productScreenModelView : ViewModel() {
         )
     }
 
-    fun handlingString(text: Text) {
+    private fun handlingString(text: Text) {
+        var gluten = false
+        var number = 0
+        var meat = false
+        var containGluten: MutableList<String> = ArrayList()
+        var containMeat: MutableList<String> = ArrayList()
         for (i in 0 until text.textBlocks.size) {
-            var gluten = false
-            var number = 0
-            var meat = false
             val str = text.textBlocks[i].text
-            val spannable = SpannableStringBuilder(str + " ")
-            if (i % 2 != 0) {
-                val slicedString = str.slice(13 until str.length)
-                val arr = slicedString.split(", ")
-
-                for (value in arr) {
-                    if (value.lowercase() in glutenArray) {
-                        gluten = true
+            val arr = str.split(" ")
+            for (value in arr) {
+                if (value.lowercase() in glutenArray) {
+                    gluten = true
+                    val foundWord = value.toRegex().find(str)
+                    if (foundWord != null) {
+                        containGluten.add(foundWord.value)
+                    }
+                }
+                for (meatType in meatArray) {
+                    if (meatType in value.lowercase()) {
+                        meat = true
                         val foundWord = value.toRegex().find(str)
                         if (foundWord != null) {
-                            spannable.setSpan(
-                                BackgroundColorSpan(Color.YELLOW),
-                                foundWord.range.first, // start
-                                foundWord.range.last + 1, // end
-                                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-                            )
-                        }
-                    }
-                    for (meatType in meatArray) {
-                        if (meatType in value.lowercase()) {
-                            meat = true
-                            val foundWord = value.toRegex().find(str)
-                            if (foundWord != null) {
-                                println(foundWord.value)
-                                spannable.setSpan(
-                                    BackgroundColorSpan(Color.RED),
-                                    foundWord.range.first, // start
-                                    foundWord.range.last + 1, // end
-                                    Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-                                )
-                            }
-                        }
-                    }
-                    number += 1
-                }
-                binding.recognizedText.append(spannable)
-                if (!gluten) {
-                    val spann = SpannableStringBuilder(" GF ")
-                    spann.setSpan(
-                        ForegroundColorSpan(Color.YELLOW),
-                        1, // start
-                        3, // end
-                        Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-                    )
-                    binding.recognizedText.append(spann)
-                }
-                if (!meat) {
-                    val spann = SpannableStringBuilder(" V ")
-                    spann.setSpan(
-                        ForegroundColorSpan(Color.GREEN),
-                        1, // start
-                        2, // end
-                        Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-                    )
-                    binding.recognizedText.append(spann)
-                }
-            } else {
-                binding.recognizedText.append(spannable)
-            }
+                            containMeat.add(foundWord.value)
 
+                        }
+                    }
+                }
+                number += 1
+            }
+        }
+        if (gluten)
+        {
+            val spann = SpannableStringBuilder("NOT Gluten Free ")
+            spann.setSpan(
+                ForegroundColorSpan(Color.rgb(245, 190,0)),
+                0, // start
+                15, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            binding.recognizedText.append("Product is ")
+            binding.recognizedText.append(spann)
+            binding.recognizedText.append("\n")
+            for(item in containGluten)
+            {
+                binding.recognizedText.append("$item ")
+            }
             binding.recognizedText.append("\n")
         }
+
+        else {
+            val spann = SpannableStringBuilder("Gluten Free ")
+            spann.setSpan(
+                ForegroundColorSpan(Color.rgb(0, 135,62)),
+                0, // start
+                10, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            binding.recognizedText.append("Product is ")
+            binding.recognizedText.append(spann)
+            binding.recognizedText.append("\n")
+        }
+
+        if (meat)
+        {
+            val spann = SpannableStringBuilder("NOT Vegetarian ")
+            spann.setSpan(
+                ForegroundColorSpan(Color.RED),
+                0, // start
+                14, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            binding.recognizedText.append("Product is ")
+            binding.recognizedText.append(spann)
+            binding.recognizedText.append("\n")
+
+            for(item in containMeat)
+            {
+                binding.recognizedText.append("$item ")
+            }
+            binding.recognizedText.append("\n")
+        }
+
+        else {
+            val spann = SpannableStringBuilder("Vegetarian")
+            spann.setSpan(
+                ForegroundColorSpan(Color.rgb(0, 135,62)),
+                1, // start
+                9, // end
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            binding.recognizedText.append("Product is ")
+            binding.recognizedText.append(spann)
+            binding.recognizedText.append("\n")
+        }
+
+
     }
 }
