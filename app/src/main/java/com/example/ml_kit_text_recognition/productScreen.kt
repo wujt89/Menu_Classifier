@@ -5,10 +5,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import java.io.FileDescriptor
@@ -27,6 +27,13 @@ class productScreen : AppCompatActivity() {
 
         viewModel.binding.buttonTake.setOnClickListener {
             openCamera()
+        }
+
+        viewModel.binding.buttonAdd.setOnClickListener {
+            var str = viewModel.binding.editText.text.toString()
+            val intent: Intent = Intent(applicationContext, myProducts::class.java)
+            intent.putExtra("message_key", str)
+            startActivity(intent)
         }
     }
 

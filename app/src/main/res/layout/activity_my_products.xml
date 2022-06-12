@@ -1,30 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".myProducts"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/black">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/pixelcalculation"
-        android:text="MY products"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-</LinearLayout>
+        tools:context=".myProducts"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/productsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/pixelcalculation"
+            android:text="MY products"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.016"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
+
+
+
+        <ListView
+            android:layout_marginTop="40dp"
+            android:id="@+id/glutenFreeList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/glutenFreeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/glutenFreeTitle"
+            android:visibility="gone"
+            android:background="@color/white"
+            />
+
+        <ListView
+            android:id="@+id/notGlutenFreeList"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notGlutenFreeTitle"
+            android:visibility="gone"
+            android:background="@color/white"
+            />
+
+
+        <ListView
+            android:id="@+id/vegetarianList"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vegetarianTitle"
+            android:visibility="gone"
+            android:background="@color/white"
+            />
+
+        <TextView
+            android:fontFamily="@font/pixelcalculation"
+            android:layout_marginTop="60dp"
+            android:id="@+id/notVegetarianTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not Vegetarian Products"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vegetarianList" />
+
+        <TextView
+            android:fontFamily="@font/pixelcalculation"
+            android:layout_marginTop="60dp"
+            android:id="@+id/vegetarianTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vegetarian Products"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notGlutenFreeList"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            />
+
+        <TextView
+            android:fontFamily="@font/pixelcalculation"
+            android:layout_marginTop="60dp"
+            android:id="@+id/glutenFreeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gluten Free Products"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productsTitle"
+            app:layout_constraintVertical_bias="0.068"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            />
+
+        <TextView
+            android:fontFamily="@font/pixelcalculation"
+            android:layout_marginTop="60dp"
+            android:id="@+id/notGlutenFreeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not Gluten Free Products"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/glutenFreeList"
+            android:textColor="@color/white"
+            android:textSize="40sp"/>
+
+        <ListView
+            android:id="@+id/notVegetarianList"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/notVegetarianTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

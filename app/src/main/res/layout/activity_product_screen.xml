@@ -55,17 +55,18 @@
 
         <Button
             android:id="@+id/buttonAdd"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
+            android:layout_width="340dp"
+            android:layout_height="60dp"
             android:background="@drawable/buttonmenu"
             android:fontFamily="@font/pixelcalculation"
             android:text="@string/add_product"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.902"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.954" />
+            app:layout_constraintVertical_bias="0.959" />
 
         <ImageView
             android:id="@+id/image"
@@ -93,5 +94,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:layout_width="340dp"
+            android:layout_height="60dp"
+            android:autofillHints="Name of product..."
+            android:hint="Name of product..."
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.959" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
