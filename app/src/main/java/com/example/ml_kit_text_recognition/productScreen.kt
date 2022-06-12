@@ -23,18 +23,75 @@ class productScreen : AppCompatActivity() {
         viewModel.binding.buttonImport.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, viewModel.pickImage)
+            viewModel.binding.editText.visibility = View.VISIBLE
+            viewModel.binding.buttonAdd.visibility = View.VISIBLE
         }
 
         viewModel.binding.buttonTake.setOnClickListener {
             openCamera()
+            viewModel.binding.editText.visibility = View.VISIBLE
+            viewModel.binding.buttonAdd.visibility = View.VISIBLE
         }
 
         viewModel.binding.buttonAdd.setOnClickListener {
-            var helper = DataBase.getDatabase(applicationContext)
-            var db = helper.writableDatabase
-            var str = viewModel.binding.editText.text.toString()
-            db?.execSQL("INSERT INTO PRODUCTS(PNAME, PING) VALUES('$str', 'pomarancz')")
-            viewModel.binding.editText.setText("")
+            println(viewModel.returnCode)
+            if (viewModel.returnCode == 1 || viewModel.returnCode == 0)
+            {
+                var helper = DataBase.getDatabase(applicationContext)
+                var db = helper.writableDatabase
+                if (viewModel.binding.editText.text.toString() != "" )
+                {
+                    var str = viewModel.binding.editText.text.toString()
+                    db?.execSQL("INSERT INTO PRODUCTS(PNAME, PING) VALUES('$str', 'pomarancz')")
+                    viewModel.binding.editText.visibility = View.GONE
+                    viewModel.binding.buttonAdd.visibility = View.GONE
+                }
+            }
+
+            else if (viewModel.returnCode == 10 || viewModel.returnCode == 11)
+            {
+                var helper = DBNotGluten.getDatabase(applicationContext)
+                var db = helper.writableDatabase
+                if (viewModel.binding.editText.text.toString() != "" )
+                {
+                    var str = viewModel.binding.editText.text.toString()
+                    var ing = "( ${viewModel.ingGluten})"
+                    str +=ing
+                    db?.execSQL("INSERT INTO NOTGLUTENFREE(PNAME, PING) VALUES('$str', 'pomarancz')")
+                    viewModel.binding.editText.visibility = View.GONE
+                    viewModel.binding.buttonAdd.visibility = View.GONE
+                }
+            }
+
+            if (viewModel.returnCode == 0 || viewModel.returnCode == 10)
+            {
+                var helper = DBVegetarian.getDatabase(applicationContext)
+                var db = helper.writableDatabase
+                if (viewModel.binding.editText.text.toString() != "" )
+                {
+                    var str = viewModel.binding.editText.text.toString()
+                    db?.execSQL("INSERT INTO VEGETARIAN(PNAME, PING) VALUES('$str', 'pomarancz')")
+                    viewModel.binding.editText.visibility = View.GONE
+                    viewModel.binding.buttonAdd.visibility = View.GONE
+                }
+            }
+
+            else if (viewModel.returnCode == 1 || viewModel.returnCode == 11)
+            {
+                var helper = DBNotVegetarian.getDatabase(applicationContext)
+                var db = helper.writableDatabase
+                if (viewModel.binding.editText.text.toString() != "" )
+                {
+                    var str = viewModel.binding.editText.text.toString()
+                    var ing = "( ${viewModel.ingMeat})"
+                    str +=ing
+                    db?.execSQL("INSERT INTO NOTVEGETARIAN(PNAME, PING) VALUES('$str', 'pomarancz')")
+                    viewModel.binding.editText.visibility = View.GONE
+                    viewModel.binding.buttonAdd.visibility = View.GONE
+                }
+            }
+
+
         }
     }
 

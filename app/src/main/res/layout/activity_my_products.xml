@@ -46,7 +46,7 @@
         <ListView
             android:id="@+id/notGlutenFreeList"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/notGlutenFreeTitle"
             android:visibility="gone"
@@ -57,7 +57,7 @@
         <ListView
             android:id="@+id/vegetarianList"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vegetarianTitle"
             android:visibility="gone"
@@ -120,7 +120,7 @@
         <ListView
             android:id="@+id/notVegetarianList"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
