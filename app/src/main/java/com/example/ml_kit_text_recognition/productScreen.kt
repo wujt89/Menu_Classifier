@@ -30,7 +30,11 @@ class productScreen : AppCompatActivity() {
         }
 
         viewModel.binding.buttonAdd.setOnClickListener {
-
+            var helper = DataBase.getDatabase(applicationContext)
+            var db = helper.writableDatabase
+            var str = viewModel.binding.editText.text.toString()
+            db?.execSQL("INSERT INTO PRODUCTS(PNAME, PING) VALUES('$str', 'pomarancz')")
+            viewModel.binding.editText.setText("")
         }
     }
 
