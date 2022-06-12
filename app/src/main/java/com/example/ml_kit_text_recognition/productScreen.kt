@@ -30,10 +30,7 @@ class productScreen : AppCompatActivity() {
         }
 
         viewModel.binding.buttonAdd.setOnClickListener {
-            var str = viewModel.binding.editText.text.toString()
-            val intent: Intent = Intent(applicationContext, myProducts::class.java)
-            intent.putExtra("message_key", str)
-            startActivity(intent)
+
         }
     }
 

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.ml_kit_text_recognition.databinding.ActivityFirstScreenBinding
-import java.util.jar.Manifest
 
 
 class firstScreen : AppCompatActivity() {
