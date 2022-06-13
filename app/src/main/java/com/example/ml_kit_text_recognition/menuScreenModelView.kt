@@ -25,8 +25,8 @@ class menuScreenModelView : ViewModel() {
     var imageBitmap: Bitmap? = null
     private val TAG  = "ML_Kit_text_recognition"
     var flag = 0
-    private var glutenArray = listOf<String>("bread")
-    private val meatArray = listOf<String>("steak", "chicken")
+    private var glutenArray = listOf<String>("bread", "flour", "pasta")
+    private val meatArray = listOf<String>("steak", "chicken", "salmon", "prawns", "becon")
 
 
     var selectedImage: Bitmap? = null
@@ -118,6 +118,7 @@ class menuScreenModelView : ViewModel() {
                     )
                     binding.recognizedText.append(spann)
                 }
+                binding.recognizedText.append("\n")
             }
             else{
                 binding.recognizedText.append(spannable)

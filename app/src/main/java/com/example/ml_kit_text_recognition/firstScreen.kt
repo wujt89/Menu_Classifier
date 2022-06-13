@@ -35,9 +35,5 @@ class firstScreen : AppCompatActivity() {
             val i = Intent(this@firstScreen, myProducts::class.java)
             startActivity(i)
         }
-
-        binding.addRestaurant.setOnClickListener {
-
-        }
     }
 }

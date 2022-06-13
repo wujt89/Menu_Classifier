@@ -41,19 +41,6 @@
             android:textSize="34sp" />
 
         <Button
-            android:id="@+id/addRestaurant"
-            android:layout_width="500sp"
-            android:layout_height="90sp"
-            android:layout_marginTop="20sp"
-            android:layout_weight="0"
-            android:background="@drawable/buttonmenu"
-            android:fontFamily="@font/pixelcalculation"
-            android:padding="15dp"
-            android:text="My Restaurants"
-            android:textAlignment="center"
-            android:textSize="34sp" />
-
-        <Button
             android:id="@+id/addProduct"
             android:layout_width="500sp"
             android:layout_height="90sp"
@@ -62,7 +49,7 @@
             android:background="@drawable/buttonmenu"
             android:fontFamily="@font/pixelcalculation"
             android:padding="15dp"
-            android:text="My Restaurants"
+            android:text="My Products"
             android:textAlignment="center"
             android:textSize="34sp" />
     </LinearLayout>

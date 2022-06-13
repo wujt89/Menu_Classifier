@@ -67,6 +67,7 @@
         <TextView
             android:fontFamily="@font/pixelcalculation"
             android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/notVegetarianTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,6 +80,7 @@
         <TextView
             android:fontFamily="@font/pixelcalculation"
             android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/vegetarianTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,6 +94,7 @@
         <TextView
             android:fontFamily="@font/pixelcalculation"
             android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/glutenFreeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,6 +111,7 @@
         <TextView
             android:fontFamily="@font/pixelcalculation"
             android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/notGlutenFreeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
