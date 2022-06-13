@@ -31,8 +31,8 @@ class productScreenModelView : ViewModel() {
     var flag = 0
 
     var bitmapArray = ArrayList<Bitmap>()
-    private var glutenArray = listOf<String>("bread")
-    private val meatArray = listOf<String>("steak", "chicken")
+    private var glutenArray = listOf<String>("bread", "flour", "pasta", "wheat")
+    private val meatArray = listOf<String>("steak", "chicken", "salmon", "prawns", "becon", "gelatine", "beef")
 
 
     var selectedImage: Bitmap? = null
@@ -61,15 +61,17 @@ class productScreenModelView : ViewModel() {
 
     private fun handlingString(text: Text) {
         var gluten = false
-        var number = 0
+        println(text.text.toString())
         var meat = false
         returnCode=0
         var containGluten: MutableList<String> = ArrayList()
         var containMeat: MutableList<String> = ArrayList()
         for (i in 0 until text.textBlocks.size) {
+            var number = 0
             val str = text.textBlocks[i].text
-            val arr = str.split(" ")
+            val arr = str.split(", ")
             for (value in arr) {
+                println(value)
                 if (value.lowercase() in glutenArray) {
                     gluten = true
 
